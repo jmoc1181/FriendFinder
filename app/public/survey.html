@@ -41,6 +41,7 @@
 
 		<hr>
 
+
 		<h3><strong>Question 1</strong></h3>
 		<h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q1">
@@ -156,6 +157,8 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
 
+
+
 		<br>
 		<br>
 
@@ -163,8 +166,25 @@
 		<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
  Submit</button>
 
+<script type = "text/javascript">
+	
+		//on button click..
+		$(".submit").on("click", function(event) {
+			event.preventDefault();
+			var q1 = parseInt($("#q1").val().trim());
+			var q2 = parseInt($("#q2").val().trim());
+			var q3 = parseInt($("#q3").val().trim());
+			var q4 = parseInt($("#q4").val().trim());
+			var q5 = parseInt($("#q5").val().trim());
+			var q6 = parseInt($("#q6").val().trim());
+			var q7 = parseInt($("#q7").val().trim());
+			var q8 = parseInt($("#q8").val().trim());
+			var q9 = parseInt($("#q9").val().trim());
+			var q10 = parseInt($("#q10").val().trim());
 
 
+
+</script>
 
 </body>
 </html>
