@@ -16,6 +16,7 @@
 	<!-- Chosen -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="./style.css">
 
 </head>
@@ -48,6 +49,7 @@
 				  <div class="form-group">
 				  <label for="q1">You need a lot of space.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q1">
+				   <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -58,6 +60,7 @@
 				  <div class="form-group">
 				  <label for="q2">You speak often before you think.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q2">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -68,6 +71,7 @@
 				  <div class="form-group">
 				  <label for="q3">You empathize with people.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q3">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -78,6 +82,7 @@
 				  <div class="form-group">
 				  <label for="q4">You like animals.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q4">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -88,6 +93,7 @@
 				  <div class="form-group">
 				  <label for="q5">You are adventurous.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q5">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -98,6 +104,7 @@
 				  <div class="form-group">
 				  <label for="q6">You handle most things seriously.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q6">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -108,6 +115,7 @@
 				  <div class="form-group">
 				  <label for="q7">You are responsible.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q7">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -118,6 +126,7 @@
 				  <div class="form-group">
 				  <label for="q8">You are physically active.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q8">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -128,6 +137,7 @@
 				  <div class="form-group">
 				  <label for="q9">You enjoy superficial things.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q9">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -138,6 +148,7 @@
 				  <div class="form-group">
 				  <label for="q10">You like to philosophize.</label><br>
 				  <select class="selectpicker" data-width="auto" id="q10">
+				  <option value = 0>(select)</option>
 				    <option value = 1>1(strongly disagree)</option>
 				    <option value = 2>2</option>
 				    <option value = 3>3</option>
@@ -198,15 +209,9 @@
 
 	newfriendScore = newfriend.scores
 	newfriendScore.push(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10);
-	console.log("clicked");
 	console.log(newfriend);
-	
-// 	$.ajax({
-//   type: 'POST',
-//   data: JSON.stringify(newfriend),
-//   contentType: 'application/json',
-//   url: '/api/friends'
-// });
+
+
 	$.post("/api/tables", newfriend, function(data) {
 		result = JSON.parse(data);
 		var $img = $("<img>", {src: result.photo, alt: result.name});
@@ -214,16 +219,16 @@
 		//clear form
 		$("#name").val("");
 		$("#photo").val("");
-		$("#q1").val(1);
-		$("#q2").val(1);
-		$("#q3").val(1);
-		$("#q4").val(1);
-		$("#q5").val(1);
-		$("#q6").val(1);
-		$("#q7").val(1);
-		$("#q8").val(1);
-		$("#q9").val(1);
-		$("#q10").val(1);
+		$("#q1").val(0);
+		$("#q2").val(0);
+		$("#q3").val(0);
+		$("#q4").val(0);
+		$("#q5").val(0);
+		$("#q6").val(0);
+		$("#q7").val(0);
+		$("#q8").val(0);
+		$("#q9").val(0);
+		$("#q10").val(0);
 	});
 
 });
